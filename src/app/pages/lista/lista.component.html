@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+
+<section class="contenido">
+
+    <table class="table-info table table-striped" style="text-align: center">
+        <thead>
+          <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Description</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Enlace</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let L of Lista">
+            <th scope="row"><img src="{{L.imagen}}"  width="60" height="48"></th>
+            <td>{{L.titulo}}</td>
+            <td>{{L.descripcion}}</td>
+            <td>{{L.categoria}}</td>
+            <td>{{L.link}}</td>
+            <td><button type="button" class="btn btn-outline-success"  [routerLink]="['/editar', L.idAnime]"><i class="fa-solid fa-pen"></i></button></td>
+            <td><button type="button" class="btn btn-outline-danger" (click)="eliminar(L.idAnime)"><i class="fa-solid fa-trash"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+
+</section>
