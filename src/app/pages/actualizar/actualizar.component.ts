@@ -6,6 +6,8 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './actualizar.component.html',
   styleUrls: ['./actualizar.component.css']
 })
+
+
 export class ActualizarComponent {
   Lista: any = [];
 
@@ -13,6 +15,7 @@ export class ActualizarComponent {
     this.listaAnimes();
   }
 
+  // Funcion para obtener la lista de animes
   listaAnimes() {
     this.data.get('animes', 'traerAnimes').subscribe((dato: any) => {
       console.log(dato);

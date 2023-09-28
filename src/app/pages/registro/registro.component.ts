@@ -25,10 +25,12 @@ export class RegistroComponent {
 
   ngOnInit(): void {
   }
-
+// Verificacion de los campos del formularios
   campoEsValido(campo: string) {
     return this.Formulario.controls[campo].errors && this.Formulario.controls[campo].touched;
   }
+
+  // Guardado de los datos del formulario
 
   guardar() {
     this.data.post('animes', 'agregarAnime', this.Formulario.value).subscribe((dato: any) => {

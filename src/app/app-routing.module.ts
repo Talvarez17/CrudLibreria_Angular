@@ -9,6 +9,7 @@ import { EditarComponent } from './pages/editar/editar.component';
 import { ActualizarComponent } from './pages/actualizar/actualizar.component';
 import { EliminarComponent } from './pages/eliminar/eliminar.component';
 
+// ----------------------------------------- Implementacion de rutas con authguard -------------------------------------
 const routes: Routes = [
   {
     path: '',

@@ -9,6 +9,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+                <!-- Uso de la lista de permisos para mostra las opciones que puede realizar cad uno de ellos, Uso del for -->
                 <a *ngFor="let P of Permisos" class="nav-link" aria-current="page" routerLink="{{P.url}}">{{P.nombre}}</a>
                 <a class="nav-link" aria-current="page" [routerLink]="['/login']">Salir</a>
 

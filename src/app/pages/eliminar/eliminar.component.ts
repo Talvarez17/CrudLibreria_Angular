@@ -15,6 +15,8 @@ export class EliminarComponent {
     this.listaAnimes();
   }
 
+  // Funcion para obtener la lista de animes
+
   listaAnimes() {
     this.data.get('animes', 'traerAnimes').subscribe((dato: any) => {
       console.log(dato);
@@ -24,8 +26,11 @@ export class EliminarComponent {
   }
 
 
+  // Funcion eliminar element de la lista
 
   eliminar(idAnime: any) {
+
+    // Alertas de swal
 
     Swal.fire({
       title: '¿Quieres eliminar este anime?',
@@ -38,6 +43,7 @@ export class EliminarComponent {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
+  // Envio de datos con el metodo post para la eliminacion de un elemento por medio del ID
 
         this.data.post('animes', 'eliminarAnime', { 'idAnime': idAnime }).subscribe((dato: any) => {
           console.log(dato);

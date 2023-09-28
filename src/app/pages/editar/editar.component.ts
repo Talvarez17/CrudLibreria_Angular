@@ -18,6 +18,8 @@ export class EditarComponent {
     this.obtenerRegistro(idAnime);
   }
 
+  // Formulario
+
   Formulario: FormGroup = this.fb.group({
     idAnime: [],
     nombre: [, [Validators.required, Validators.maxLength(99)]],
@@ -29,11 +31,12 @@ export class EditarComponent {
   });
 
 
-
+  // Funcion de verificacion de llenado correcto de los campos del formulario
   campoEsValido(campo: string) {
     return this.Formulario.controls[campo].errors && this.Formulario.controls[campo].touched;
   }
 
+  // Funcion de obtencion de datos y parchado del formulario 
   
   obtenerRegistro(idAnime: any) {
     this.data.post('animes', 'traerAnimexid', { 'idAnime': idAnime }).subscribe((dato: any) => {
@@ -49,6 +52,8 @@ export class EditarComponent {
     });
 
   }
+
+  // Funcion de guardado de los elemento escritos en el formulario por medio del metodo post
 
   guardar() {
     this.data.post('animes', 'editarAnime', this.Formulario.value).subscribe((dato: any) => {
