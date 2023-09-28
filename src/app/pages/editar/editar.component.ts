@@ -20,7 +20,7 @@ export class EditarComponent {
 
   Formulario: FormGroup = this.fb.group({
     idAnime: [],
-    titulo: [, [Validators.required, Validators.maxLength(99)]],
+    nombre: [, [Validators.required, Validators.maxLength(99)]],
     descripcion: [, [Validators.required, Validators.maxLength(255)]],
     categoria: [, [Validators.required, Validators.maxLength(99)]],
     imagen: [, [Validators.required, Validators.maxLength(999)]],
@@ -40,7 +40,7 @@ export class EditarComponent {
       console.log(dato);
       this.Formulario.patchValue({
         idAnime: dato[0].idAnime,
-        titulo: dato[0].titulo,
+        nombre: dato[0].nombre,
         descripcion: dato[0].descripcion,
         categoria: dato[0].categoria,
         imagen: dato[0].imagen,

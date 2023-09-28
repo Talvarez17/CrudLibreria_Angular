@@ -3,12 +3,12 @@ import { DataService } from 'src/app/services/data.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-lista',
-  templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.css']
+  selector: 'app-eliminar',
+  templateUrl: './eliminar.component.html',
+  styleUrls: ['./eliminar.component.css']
 })
-export class ListaComponent {
-
+export class EliminarComponent {
+  
   Lista: any = [];
 
   constructor(private data: DataService) {

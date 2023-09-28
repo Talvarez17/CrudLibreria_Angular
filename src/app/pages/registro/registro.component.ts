@@ -13,7 +13,7 @@ export class RegistroComponent {
 
   
   Formulario: FormGroup = this.fb.group({
-    titulo: [, [Validators.required, Validators.maxLength(99)]],
+    nombre: [, [Validators.required, Validators.maxLength(99)]],
     descripcion: [, [Validators.required, Validators.maxLength(255)]],
     categoria: [, [Validators.required, Validators.maxLength(99)]],
     imagen: [, [Validators.required, Validators.maxLength(999)]],

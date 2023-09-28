@@ -9,10 +9,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" aria-current="page" [routerLink]="['/lista']">Inicio</a>
-                <a class="nav-link" aria-current="page" [routerLink]="['/registro']">Añadir nuevo anime</a>
+                <a *ngFor="let P of Permisos" class="nav-link" aria-current="page" routerLink="{{P.url}}">{{P.nombre}}</a>
+                <a class="nav-link" aria-current="page" [routerLink]="['/login']">Salir</a>
 
             </div>
+
         </div>
     </div>
 </nav>
