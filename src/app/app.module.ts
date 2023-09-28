@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegistrateComponent } from './pages/registrate/registrate.component';
 
 
 
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroComponent,
     MenuComponent,
     EditarComponent,
-    ListaComponent
+    ListaComponent,
+    RegistrateComponent
   ],
   imports: [
     BrowserModule,

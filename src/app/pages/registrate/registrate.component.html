@@ -1,0 +1,50 @@
+<form (ngSubmit)="registro()" [formGroup]="Formulario">
+
+    <section class="vh-100" style="background-color: rgb(80, 195, 223);">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+
+                            <div class="form-outline mb-4">
+                                <a class="navbar-brand" style="color:black; font-size: 20px; font-weight: 600;">
+                                    <img src="https://res.cloudinary.com/dt2ozhyu5/image/upload/v1695250560/kvfuodhtewmubxyxxh1w.png"
+                                        alt="" width="120" height="70"></a>
+                            </div>
+
+                            <h4 class="mb-4">Registro de usuario</h4>
+
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="typeEmailX-2" class="form-control form-control-lg"
+                                    formControlName="correo" />
+                                <label class="form-label" for="typeEmailX-2">Correo</label>
+                            </div>
+                            <span class="form-text text-danger" *ngIf="campoEsValido('correo')">
+                                Este campo es obligatorio
+                            </span>
+
+                            <div class="form-outline mb-4">
+                                <input type="password" id="typePasswordX-2" class="form-control form-control-lg"
+                                    formControlName="pass" />
+                                <label class="form-label" for="typePasswordX-2">Contraseña</label>
+                            </div>
+                            <span class="form-text text-danger" *ngIf="campoEsValido('pass')">
+                                Este campo es obligatorio
+                            </span>
+
+                            <button class="btn btn-primary btn-lg btn-block me-1" type="submit">Entrar</button>
+                            <button class="btn btn-info btn-lg btn-block ms-1" type="submit"
+                                [routerLink]="['/login']">Volver</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</form>

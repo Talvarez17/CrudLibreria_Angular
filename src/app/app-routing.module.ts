@@ -6,6 +6,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { EditarComponent } from './pages/editar/editar.component';
+import { RegistrateComponent } from './pages/registrate/registrate.component';
 
 
 // ----------------------------------------- Implementacion de rutas con authguard -------------------------------------
@@ -14,6 +15,7 @@ const routes: Routes = [
     path: '',
     children: [
       {path: 'login',    component: LoginComponent},
+      {path: 'resgistrarUsuario',    component: RegistrateComponent},
       {path: 'registro',    component: RegistroComponent, canActivate: [AuthGuard]},
       {path: 'menu', component: MenuComponent, canActivate: [AuthGuard]},
       {path: 'editar/:idAnime', component: EditarComponent, canActivate: [AuthGuard]},

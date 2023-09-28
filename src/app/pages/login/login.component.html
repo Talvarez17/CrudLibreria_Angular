@@ -9,25 +9,28 @@
                 <div class="card-body p-5 text-center">
                     
                 
-                    <div class="form-outline mb-4">
+                    <div class="form-outline mb-3">
                         <a class="navbar-brand" style="color:black; font-size: 20px; font-weight: 600;">
                             <img src="https://res.cloudinary.com/dt2ozhyu5/image/upload/v1695250560/kvfuodhtewmubxyxxh1w.png" alt="" width="120" height="70"></a>
                     </div>
 
-                    <h6 class="mb-4">Ingresa tu correo y contaseña</h6>
+                    <h4 class="mb-3">Inicio de sesión</h4>
+                    <h6 class="mb-3">Ingresa tu correo y contraseña</h6>
                     
 
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-3">
                     <input type="text" id="typeEmailX-2" class="form-control form-control-lg"  formControlName="correo"/>
                     <label class="form-label" for="typeEmailX-2">Correo</label>
                   </div>
       
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-3">
                     <input type="password" id="typePasswordX-2" class="form-control form-control-lg" formControlName="pass"/>
                     <label class="form-label" for="typePasswordX-2">Contraseña</label>
                   </div>
       
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Entrar</button>
+                  <button class="btn btn-primary btn-lg btn-block me-1" type="submit">Entrar</button>
+                  <button class="btn btn-info btn-lg btn-block ms-1" type="submit" [routerLink]="['/resgistrarUsuario']" >Registrar</button>
+
       
                 </div>
               </div>
