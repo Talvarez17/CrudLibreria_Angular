@@ -12,8 +12,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EliminarComponent } from './pages/eliminar/eliminar.component';
-import { ActualizarComponent } from './pages/actualizar/actualizar.component';
+
 
 
 @NgModule({
@@ -23,9 +22,7 @@ import { ActualizarComponent } from './pages/actualizar/actualizar.component';
     RegistroComponent,
     MenuComponent,
     EditarComponent,
-    ListaComponent,
-    EliminarComponent,
-    ActualizarComponent
+    ListaComponent
   ],
   imports: [
     BrowserModule,
