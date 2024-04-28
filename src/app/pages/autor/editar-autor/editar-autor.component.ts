@@ -5,29 +5,27 @@ import { DataService } from 'src/app/services/data.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-editar',
-  templateUrl: './editar.component.html',
-  styleUrls: ['./editar.component.css']
+  selector: 'app-editar-autor',
+  templateUrl: './editar-autor.component.html',
+  styleUrls: ['./editar-autor.component.css']
 })
-export class EditarComponent {
+export class EditarAutorComponent {
 
   Lista: any = [];
 
   constructor(private data: DataService, private fb: FormBuilder, private router: Router, private activeRouter: ActivatedRoute) {
-    const idAnime = this.activeRouter.snapshot.params['idAnime'];
-    this.obtenerRegistro(idAnime);
+    const idLibro = this.activeRouter.snapshot.params['idAutor'];
+    this.obtenerRegistro(idLibro);
   }
 
   // Formulario
 
   Formulario: FormGroup = this.fb.group({
-    idAnime: [],
+    id: [],
     nombre: [, [Validators.required, Validators.maxLength(99)]],
-    descripcion: [, [Validators.required, Validators.maxLength(255)]],
-    categoria: [, [Validators.required, Validators.maxLength(99)]],
-    imagen: [, [Validators.required, Validators.maxLength(999)]],
-    link: [, [Validators.required, Validators.maxLength(255)]],
-   
+    apellido: [, [Validators.required, Validators.maxLength(99)]],
+    nacionalidad: [, [Validators.required, Validators.maxLength(99)]],
+    fecha: [Validators.required]
   });
 
 
@@ -37,17 +35,16 @@ export class EditarComponent {
   }
 
   // Funcion de obtencion de datos y parchado del formulario 
-  
-  obtenerRegistro(idAnime: any) {
-    this.data.post('animes', 'traerAnimexid', { 'idAnime': idAnime }).subscribe((dato: any) => {
-      console.log(dato);
+
+  obtenerRegistro(idLibro: any) {
+    this.data.get('autor', 'id', idLibro).subscribe((dato: any) => {
+
       this.Formulario.patchValue({
-        idAnime: dato[0].idAnime,
+        id: dato[0].id,
         nombre: dato[0].nombre,
-        descripcion: dato[0].descripcion,
-        categoria: dato[0].categoria,
-        imagen: dato[0].imagen,
-        link: dato[0].link
+        apellido: dato[0].apellido,
+        nacionalidad: dato[0].nacionalidad,
+        fecha: dato[0].fecha.split('T')[0],
       });
     });
 
@@ -56,9 +53,9 @@ export class EditarComponent {
   // Funcion de guardado de los elemento escritos en el formulario por medio del metodo post
 
   guardar() {
-    this.data.post('animes', 'editarAnime', this.Formulario.value).subscribe((dato: any) => {
-      console.log(dato);
-      if (['estatus']) {
+    this.data.put('autor', 'editar', this.Formulario.value).subscribe((dato: any) => {
+
+      if (dato) {
         Swal.fire({
           title: 'Exito',
           text: "Se ha actualizado la información",
@@ -68,19 +65,25 @@ export class EditarComponent {
           confirmButtonText: 'Aceptar'
         }).then((result) => {
           if (result.isConfirmed) {
-            this.router.navigate(['/lista']); 
+            this.router.navigate(['/listaAutor']);
           }
         })
-        console.log("Exito");
-      } else {
-        Swal.fire(
-          'Error',
-          'No se ha podido actualizar la información',
-          'warning'
-        )
       }
-    })
+    },
+      (error) => {
+        if (error.status === 400) {
+          Swal.fire({
+            title: 'Ups',
+            text: 'Parece que algo esta mal, verifica tu datos',
+            icon: 'error',
+            confirmButtonColor: 'red',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+            }
+          });
+        }
+      })
   }
-
 
 }

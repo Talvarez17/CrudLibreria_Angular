@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,18 +7,29 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
 
-// URL BASE de los servicios
-  baseUrl = 'http://localhost/sistemasAbiertos/controller/';
-  // baseUrl = 'http://demotom.orgfree.com/sistemasAbiertos/controller/';
+  baseUrl = 'http://localhost:5245/api/';
+
+  public httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8; Access-Control-Allow-Origin'
+    })
+  };
 
   constructor(private http: HttpClient) { }
-//Metodo get para la obtencion y envio de datos
-  get(model: string, action: string) {
-    return this.http.get(`${this.baseUrl}${model}.php?option=${action}`);
+  
+  get(model: string, action: string, datos: any) {
+    return this.http.get(`${this.baseUrl}${model}/${action}/${datos}`);
   }
-//Metodo post para la obtencion y envio de datos
+  
+  delete(model: string, action: string, datos: any) {
+    return this.http.delete(`${this.baseUrl}${model}/${action}/${datos}`);
+  }
 
   post(model: string, action: string, datos: any) {
-    return this.http.post(`${this.baseUrl}${model}.php?option=${action}`, datos);
+    return this.http.post(`${this.baseUrl}${model}/${action}`, datos);
+  }
+
+  put(model: string, action: string, datos: any) {
+    return this.http.put(`${this.baseUrl}${model}/${action}`, datos);
   }
 }

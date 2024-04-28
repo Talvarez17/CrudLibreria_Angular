@@ -12,13 +12,15 @@ import Swal from 'sweetalert2';
 export class RegistrateComponent {
 
   Formulario: FormGroup = this.fb.group({
+    nombre: [, Validators.required],
+    apellido: [, Validators.required],
     correo: [, [Validators.required, Validators.email]],
-    pass: [, Validators.required]
-
+    contraseña: [, Validators.required]
   })
 
-  constructor(private fb: FormBuilder, private router: Router, private data: DataService) {
+  activo:boolean = false
 
+  constructor(private fb: FormBuilder, private router: Router, private data: DataService) {
   }
 
   campoEsValido(campo: string) {
@@ -27,9 +29,11 @@ export class RegistrateComponent {
 
   registro() {
 
-    this.data.post('usuario', 'agregarUsuario', this.Formulario.value).subscribe((dato: any) => {
+    this.activo = true;
+
+    this.data.post('usuario', 'agregar', this.Formulario.value).subscribe((dato: any) => {
       console.log(dato);
-      if (dato.status == true) {
+      if (dato) {
 
         Swal.fire({
           title: 'Exito',
@@ -44,10 +48,10 @@ export class RegistrateComponent {
           }
         })
 
-      }else if (dato.code == 23000){
+      } else {
         Swal.fire({
           title: 'Error',
-          text: "Ya existe un usuario registrado con estos datos",
+          text: "No se ha podido registrar al usuario",
           icon: 'error',
           showCancelButton: false,
           confirmButtonColor: 'red',
@@ -55,8 +59,8 @@ export class RegistrateComponent {
         }).then((result) => {
           if (result.isConfirmed) {
           }
-        })      
-        
+        })
+
       }
 
     })
