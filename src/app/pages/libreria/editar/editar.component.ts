@@ -11,17 +11,18 @@ import Swal from 'sweetalert2';
 })
 export class EditarComponent {
 
-  Lista: any = [];
+  // Inicializacion de un arreglo para los datos de autores usado en el slect
   Autores: any = [];
 
 
   constructor(private data: DataService, private fb: FormBuilder, private router: Router, private activeRouter: ActivatedRoute) {
+    // Obtencion de párametros e inicializacion de funciones
     const idLibro = this.activeRouter.snapshot.params['id'];
     this.obtenerRegistro(idLibro);
     this.lista();
   }
 
-  // Formulario
+  // Formulario y validacion de los datos
 
   Formulario: FormGroup = this.fb.group({
     id: [],
@@ -39,14 +40,14 @@ export class EditarComponent {
     return this.Formulario.controls[campo].errors && this.Formulario.controls[campo].touched;
   }
 
+  // Obrencion de los datos de usuario e inclusion en arreglo
   lista() {
     this.data.get('autor', 'obtener', 'todo').subscribe((dato: any) => {
       this.Autores = dato.reverse();
     });
   }
 
-  // Funcion de obtencion de datos y parchado del formulario 
-
+  // Funcion de obtencion de datos y parchado del formulario por metodo get
   obtenerRegistro(idLibro: any) {
     this.data.get('libro', 'id', idLibro).subscribe((dato: any) => {
 
@@ -64,7 +65,6 @@ export class EditarComponent {
   }
 
   // Funcion de guardado de los elemento escritos en el formulario por medio del metodo post
-
   guardar() {
     this.data.put('libro', 'editar', this.Formulario.value).subscribe((dato: any) => {
 

@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
 
-
+// Formulario y validacion
   Formulario: FormGroup = this.fb.group({
     correo: [, [Validators.required, Validators.email]],
     contraseña: [, Validators.required]

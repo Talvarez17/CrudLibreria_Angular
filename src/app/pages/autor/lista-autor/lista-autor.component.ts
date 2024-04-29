@@ -8,20 +8,22 @@ import Swal from 'sweetalert2';
   styleUrls: ['./lista-autor.component.css']
 })
 export class ListaAutorComponent {
+
+  // Inicializaion de la lista para los datos de los autores
   Lista: any = [];
 
   constructor(private data: DataService) {
     this.lista();
   }
 
-  //Obtencion de los libros por usuario
+  //Obtencion de los datos de los autores por medio de get
   lista() {
     this.data.get('autor', 'obtener', 'todo').subscribe((dato: any) => {
       this.Lista = dato.reverse();
     });
   }
 
-
+  // funcion de eliminar registro segun su id, primero pide la confirmacion para ejecutar la accion
   eliminar(idAutor: any) {
     Swal.fire({
       title: '¿Quieres eliminar este autor?',

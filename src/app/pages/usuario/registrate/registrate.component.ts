@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class RegistrateComponent {
 
+  // Creacion del formulario de registro y su validacion de campos
   Formulario: FormGroup = this.fb.group({
     nombre: [, Validators.required],
     apellido: [, Validators.required],
@@ -18,6 +19,7 @@ export class RegistrateComponent {
     contraseña: [, Validators.required]
   })
 
+  // Booleano que nos ayuda con el registro para desactivar el boton
   activo:boolean = false
 
   constructor(private fb: FormBuilder, private router: Router, private data: DataService) {
@@ -26,11 +28,9 @@ export class RegistrateComponent {
   campoEsValido(campo: string) {
     return this.Formulario.controls[campo].errors && this.Formulario.controls[campo].touched;
   }
-
+// Funcion de resgistro pasando la info del formulario en metodo post y se desactiva el boton de crear
   registro() {
-
     this.activo = true;
-
     this.data.post('usuario', 'agregar', this.Formulario.value).subscribe((dato: any) => {
       console.log(dato);
       if (dato) {

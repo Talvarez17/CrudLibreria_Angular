@@ -10,9 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./registro-autor.component.css']
 })
 export class RegistroAutorComponent {
-
-
-
+// Creacion y validacion del formulario
   Formulario: FormGroup = this.fb.group({
     nombre: [, [Validators.required, Validators.maxLength(99)]],
     apellido: [, [Validators.required, Validators.maxLength(99)]],
@@ -30,8 +28,7 @@ export class RegistroAutorComponent {
     return this.Formulario.controls[campo].errors && this.Formulario.controls[campo].touched;
   }
 
-  // Guardado de los datos del formulario
-
+  // Guardado de los datos del formulario por medio de post
   guardar() {
     this.data.post('autor', 'agregar', this.Formulario.value).subscribe((dato: any) => {
 

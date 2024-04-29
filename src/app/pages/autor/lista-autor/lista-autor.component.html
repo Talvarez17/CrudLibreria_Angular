@@ -1,5 +1,6 @@
 <app-menu></app-menu>
 
+<!-- Boton para agregar un nuevo autor -->
 <div class="m-2" style="width: 200px;">
   <button [routerLink]="['/registroAutor']" style="width: 150px;" type="button" class="btn btn-info">Agregar autor <i class="fa-solid fa-plus"></i></button>
 </div>
@@ -20,6 +21,7 @@
       </tr>
     </thead>
     <tbody>
+      <!-- Vaciado de datos en la tabla -->
       <tr *ngFor="let L of Lista">
         <td>{{L.nombre}}</td>
         <td>{{L.apellido}}</td>

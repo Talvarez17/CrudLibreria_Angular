@@ -10,12 +10,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
-
+// Inicializacion de arreglo para datos de autor
   Lista: any = [];
 
   //Obtenemos el id del usuario conectado
   id = localStorage.getItem("idUsuario");
 
+  // Formulario y validacion de dato
   Formulario: FormGroup = this.fb.group({
     nombre: [, [Validators.required, Validators.maxLength(99)]],
     sinopsis: [, [Validators.required, Validators.maxLength(255)]],
@@ -35,6 +36,7 @@ export class RegistroComponent {
     return this.Formulario.controls[campo].errors && this.Formulario.controls[campo].touched;
   }
 
+  // Obtencion de la informacio de autor
   lista() {
     this.data.get('autor', 'obtener', 'todo').subscribe((dato: any) => {
       this.Lista = dato.reverse();

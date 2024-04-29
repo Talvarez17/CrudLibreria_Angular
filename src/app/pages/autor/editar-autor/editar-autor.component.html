@@ -3,6 +3,7 @@
 <section>
     <div class="container-fluid">
     
+        <!-- Formulario necesario para la edicion del usuario -->
         <form (ngSubmit)="guardar()" [formGroup]="Formulario">
 
             <div class="mb-3 ms-3 mt-2 row">
@@ -47,7 +48,8 @@
             </div>
         
             <div class="d-flex flex-row-reverse">
-        
+
+                <!-- Boton accionador  -->
                 <button type="submit" [disabled]="!Formulario.valid" class="btn btn-outline-success">
                     <i class="fa-solid fa-floppy-disk"></i>
                 </button>

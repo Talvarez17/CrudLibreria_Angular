@@ -9,8 +9,9 @@ import Swal from 'sweetalert2';
 })
 export class ListaComponent {
 
+  // Inicializacion de arreglo
   Lista: any = [];
-
+  // Onbtencion de id de usuario alamcenado en localstorage desde el login
   id = localStorage.getItem("idUsuario");
 
   constructor(private data: DataService) {
@@ -24,7 +25,7 @@ export class ListaComponent {
     });
   }
 
-
+// Eliminacion de libro segun su id
   eliminar(idLibro: any) {
     Swal.fire({
       title: '¿Quieres eliminar este libro?',

@@ -6,16 +6,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DataService {
 
-
+// URL al cual accedemos
   baseUrl = 'http://localhost:5245/api/';
 
-  public httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8; Access-Control-Allow-Origin'
-    })
-  };
 
   constructor(private http: HttpClient) { }
+
+  // Definicion de los metodo http que utilizaremos, todos reciben el modelo accion y datos para la consulta 
   
   get(model: string, action: string, datos: any) {
     return this.http.get(`${this.baseUrl}${model}/${action}/${datos}`);
