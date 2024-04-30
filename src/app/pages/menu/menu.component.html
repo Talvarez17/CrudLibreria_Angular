@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" [routerLink]="['/lista']">
-            <img src="https://res.cloudinary.com/dt2ozhyu5/image/upload/v1714345953/oxb2sggf71tzw4i1vpfj.png" width="125" height="50"
+            <img src="https://res.cloudinary.com/dt2ozhyu5/image/upload/v1714412376/j7hwnts48cu8f2nct4u7.png" width="85" height="50"
                 class="d-inline-block align-text-top"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +11,7 @@
             <div class="navbar-nav">
                 <a class="nav-link" aria-current="page" [routerLink]="['/lista']">Libros</a>
                 <a class="nav-link" aria-current="page" [routerLink]="['/listaAutor']">Autores</a>
-                <a class="nav-link" aria-current="page" [routerLink]="['/login']">Salir</a>
+                <a class="nav-link" aria-current="page" (click)="tronar()" [routerLink]="['/login']">Salir</a>
             </div>
 
         </div>

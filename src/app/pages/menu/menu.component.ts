@@ -8,4 +8,8 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class MenuComponent {
 
+  tronar (){
+    localStorage.removeItem('idUsuario');
+  };
+
 }

@@ -19,7 +19,11 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private data: DataService, private router: Router) {
     // Remocion de los datos guadados en el almacenamiento local
-    localStorage.removeItem('idUsuario');
+
+    if (localStorage.getItem('idUsuario')){
+      this.router.navigate(['/lista']);
+    }
+    //localStorage.removeItem('idUsuario');
   }
 
   // Funcion login para iniciar sesion con metodo post
